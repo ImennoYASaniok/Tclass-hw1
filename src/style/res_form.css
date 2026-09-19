@@ -1,0 +1,140 @@
+
+:root {
+	--gradient-start: #2548c5;
+	--gradient-end: #b913a3;
+	--text-color: #101010;
+	--background-color: #102677;
+	--paper: rgba(255, 255, 244, 0.9);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	color: var(--text-color);
+	background: var(--background-color);
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.page {
+	width: min(940px, 100%);
+	min-height: 100vh;
+	margin: 0 auto;
+	padding: 22px 28px 30px;
+	text-align: center;
+}
+
+h1 {
+	margin: 0 0 28px;
+	font-size: 46px;
+	line-height: 0.84;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transform: rotate(-2deg);
+	background: linear-gradient(110deg, var(--gradient-start), var(--gradient-end));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.slider {
+	position: relative;
+	width: min(760px, 100%);
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.video-frame {
+	width: 100%;
+	padding: 22px;
+}
+
+video {
+	display: block;
+	width: 100%;
+	max-height: 68vh;
+	border-radius: 18px;
+	background: #000;
+	object-fit: contain;
+}
+
+.arrow {
+	flex: 0 0 58px;
+	width: 58px;
+	height: 58px;
+	border: 3px solid var(--text-color);
+	border-radius: 50%;
+	color: #fff;
+	background: linear-gradient(110deg, var(--gradient-start), var(--gradient-end));
+	cursor: pointer;
+	font: 36px Arial, sans-serif;
+	line-height: 42px;
+}
+
+.arrow:hover {
+	color: var(--text-color);
+	background: #fff;
+}
+
+.caption {
+	margin: 24px 0 0;
+	color: #fff;
+	font: 700 14px Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+.counter {
+	margin-top: 8px;
+	color: #fff;
+	font: 12px Arial, sans-serif;
+}
+
+.back {
+	display: inline-block;
+	margin-top: 28px;
+	padding: 10px 14px;
+	border: 3px solid var(--text-color);
+	border-radius: 12px;
+	color: #fff;
+	background: linear-gradient(110deg, var(--gradient-start), var(--gradient-end));
+	font: 18px Impact, sans-serif;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.back:hover {
+	color: var(--text-color);
+	background: #fff;
+}
+
+@media (max-width: 560px) {
+	.page {
+		padding: 14px 16px 35px;
+	}
+
+	.slider {
+		gap: 8px;
+	}
+
+	.arrow {
+		flex-basis: 43px;
+		width: 43px;
+		height: 48px;
+		font-size: 27px;
+	}
+
+	.video-frame {
+		padding: 12px;
+		border-width: 4px;
+		border-radius: 16px;
+	}
+
+	video {
+		border-radius: 12px;
+	}
+}

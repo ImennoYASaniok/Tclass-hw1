@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Деградните, а мы пока сольём ваши данные</title>
+	<link rel="stylesheet" href="src/style/res_form.css">
+</head>
+<body>
+	<main class="page">
+		<h1>Деградните, а мы пока сольём ваши данные</h1>
+		<section class="slider" aria-label="Слайдер видео">
+			<button class="arrow" type="button" id="previous" aria-label="Предыдущее видео">&#8592;</button>
+			<div class="video-frame"><video id="tiktokVideo" controls autoplay loop playsinline></video></div>
+			<button class="arrow" type="button" id="next" aria-label="Следующее видео">&#8594;</button>
+		</section>
+		<a class="back" href="form.html">Вернуться</a>
+	</main>
+	<script>
+		const videos = ['ivan1_tiktok.mp4', 'litenergy_tiktok.mp4', 'car_tiktok.mp4', 'china_tiktok.mp4', 'montagem_tiktok.mp4'];
+		const player = document.getElementById('tiktokVideo');
+		const counter = document.getElementById('counter');
+		let current = 0;
+
+		function showVideo(index) {
+			current = (index + videos.length) % videos.length;
+			player.src = `public/tiktok/${videos[current]}`;
+			player.muted = false;
+			player.load();
+			player.play().catch(() => {});
+		}
+
+		document.getElementById('previous').addEventListener('click', () => showVideo(current - 1));
+		document.getElementById('next').addEventListener('click', () => showVideo(current + 1));
+		showVideo(0);
+	</script>
+</body>
+</html>

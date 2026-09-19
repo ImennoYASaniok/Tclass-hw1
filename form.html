@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Твоё имя на языке роблокс</title>
+	<link rel="stylesheet" href="src/style/form.css">
+</head>
+<body>
+	<audio id="lobbyMusic" autoplay loop preload="auto" src="public/songs/lobby.mp3">
+		<source src="public/songs/lobby.mp3" type="audio/mpeg">
+	</audio>
+	<button class="music-start" id="musicStart" type="button">Включить музыку</button>
+	<video class="background-video" autoplay muted loop playsinline aria-hidden="true"><source src="public/durov_chill.mp4" type="video/mp4"></video>
+	<div class="video-shade" aria-hidden="true"></div>
+	<main class="page">
+		<div class="tape-window" aria-label="Лента мемов"><div class="meme-tape">
+			<div class="meme-set">
+				<img src="public/mems/death_max.png" alt="Мем death max">
+				<img src="public/mems/durov_max.png" alt="Мем durov max">
+				<img src="public/mems/help_max.png" alt="Мем help max">
+				<img src="public/mems/google_play_max.png" alt="Мем google play max">
+				<img src="public/mems/gosuslugi.jpg" alt="Мем gosuslugi">
+			</div>
+			<div class="meme-set" aria-hidden="true">
+				<img src="public/mems/death_max.png" alt="">
+				<img src="public/mems/durov_max.png" alt="">
+				<img src="public/mems/help_max.png" alt="">
+				<img src="public/mems/google_play_max.png" alt="">
+				<img src="public/mems/gosuslugi.jpg" alt="">
+			</div>
+		</div></div>
+		<section class="content">
+			<div class="hero"><h1>Твоё<br>имя в месенджере MAX</h1><p>Заполни форму и стань призывником :)</p></div>
+			<form class="form-card" action="res_form.html" method="get">
+				<h2>Номер карты</h2>
+				<label class="field"><span>Номер карты</span><input type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" required></label>
+				<div class="split"><label class="field"><span>Знак зодиака</span><input type="text" inputmode="text" placeholder="Зачем?" required></label> <label class="field"><span>Сколько данных украсть?</span><input inputmode="numeric" placeholder="Не знаю" required></label></div>
+				<label class="field"><span>Имя Фамилия латиницей</span><input type="text" placeholder="сигмоид сигмоидович" required></label>
+				<button class="submit" type="submit">Продолжить</button>
+			</form>
+		</section>
+	</main>
+	<div class="sdvg-stack" aria-label="Видео для СДВГ">
+		<figure class="sdvg-card"><video autoplay muted loop playsinline><source src="public/sdvg/sand.mp4" type="video/mp4"></video></figure>
+		<figure class="sdvg-card"><video autoplay muted loop playsinline><source src="public/sdvg/subway surfes.mp4" type="video/mp4"></video></figure>
+	</div>
+	<script>
+		const lobbyMusic = document.getElementById('lobbyMusic');
+		const musicStart = document.getElementById('musicStart');
+
+		function startMusic() {
+			lobbyMusic.play().then(() => {
+				musicStart.textContent = 'Выключить музыку';
+			}).catch(() => {
+				musicStart.textContent = 'Включить музыку';
+			});
+		}
+
+		musicStart.addEventListener('click', (event) => {
+			event.stopPropagation();
+			if (lobbyMusic.paused) {
+				startMusic();
+			} else {
+				lobbyMusic.pause();
+				musicStart.textContent = 'Включить музыку';
+			}
+		});
+		startMusic();
+		['click', 'keydown', 'touchstart'].forEach((eventName) => {
+			document.addEventListener(eventName, startMusic, { once: true });
+		});
+	</script>
+</body>
+</html>
