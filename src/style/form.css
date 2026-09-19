@@ -79,7 +79,8 @@ body {
 	flex-shrink: 0;
 }
 
-.meme-tape img {
+.meme-tape img,
+.meme-tape video {
 	width: 220px;
 	height: 220px;
 	flex: 0 0 auto;
@@ -241,7 +242,8 @@ input:focus {
 		font-size: clamp(48px, 17vw, 82px);
 	}
 
-	.meme-tape img {
+	.meme-tape img,
+	.meme-tape video {
 		width: 176px;
 		height: 176px;
 		border-radius: 14px;
